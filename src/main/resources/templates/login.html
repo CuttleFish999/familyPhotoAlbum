@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入 - 家庭相簿</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+            background-size: cover;
+            background-position: center;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+        .btn-primary {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        .btn-primary:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+        }
+        form h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+<!--  未登入警告視窗  -->
+<!--    <script type="text/javascript">-->
+<!--        window.onload = function() {-->
+<!--            const urlParams = new URLSearchParams(window.location.search);-->
+<!--            if (urlParams.has('NotLogin')) {-->
+<!--                alert('請登入！');-->
+<!--            }-->
+<!--        };-->
+<!--    </script>-->
+
+</head>
+<body>
+
+<div class="login-container">
+    <form method="post" action="/loginEvent">
+        <h2 class="text-center">登入</h2>
+        <div class="mb-3">
+            <label for="username" class="form-label">用戶名</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="輸入用戶名">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">密碼</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="輸入密碼">
+        </div>
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">登入</button>
+        </div>
+    </form>
+
+
+</div>
+
+</body>
+</html>
